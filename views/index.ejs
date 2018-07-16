@@ -1,0 +1,31 @@
+<html>
+<h1>Aandelen van <%= username %></h1>
+<br>
+<h3>Aandelen </h3>
+<br>
+<!-- 
+<ul>
+        <% for(var i=0; i<cart.length; i++) { %>
+            <li>
+                <%= cart[i] %>
+            </li>
+        <% } %>
+    </ul>
+-->
+
+<table>
+        <tr>
+            <th>Name</th><th>Prices</th><th>Value</th>
+            </tr>
+          
+            <% for (var i = 0; i < cart.length; i++) { %>
+              <tr>
+                <td><%= namen[i] %></td>
+                <td><%= prijzen[i] %></td>
+                <td><%= values[i] %></td>
+                
+              </tr>    
+            <% } %>
+          </table>
+
+</html>
