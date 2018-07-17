@@ -1,6 +1,40 @@
-<html>
-<h1>Aandelen van <%= username %></h1>
+<html lang="en">
+        
+<head>
+
+        <style>
+               
+                
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                
+                th {
+                    height: 50px;
+                }
+                </style>
+</head>
+<body>
+
+
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+        <div>
+                <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+                       <ul class="nav navbar-nav">
+                      <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+                      <!--<li><a href="/about">About us</a></li>
+                      <li><a href="/contact">Contact us</a></li>-->
+                    </ul>
+                </nav>
+        </div>
+
+        <h1>Aandelen van <%= username %></h1>
 <br>
+<!-- <h1>Datum <%=datum %></h1>-->
 <h3>Aandelen </h3>
 <br>
 <!-- 
@@ -13,19 +47,25 @@
     </ul>
 -->
 
+<div class="jumbotron"> 
 <table>
         <tr>
-            <th>Name</th><th>Prices</th><th>Value</th>
+            <th>Name</th><th>Prices</th><th>Value</th><th>Quantity</th><th>Initial investment</th><th>Return</th><th>Percentage</th>
             </tr>
           
             <% for (var i = 0; i < cart.length; i++) { %>
               <tr>
                 <td><%= namen[i] %></td>
                 <td><%= prijzen[i] %></td>
-                <td><%= values[i] %></td>
+                <td><%= values[i].toFixed(2) %></td>
+                <td><%= hoeveelheid[i] %></td>
+                <td><%= inleg[i].toFixed(2) %></td>
+                <td><%= (values[i] - inleg[i]).toFixed(2) %></td>
+                <td><%= (((values[i] - inleg[i])/inleg[i])*100).toFixed(2)%> % </td>
                 
               </tr>    
             <% } %>
           </table>
-
+</div>
+</body>
 </html>
